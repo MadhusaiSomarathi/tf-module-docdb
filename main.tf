@@ -17,3 +17,10 @@ resource "aws_docdb_cluster" "docdb" {
   db_subnet_group_name   = "${var.env}-${var.name}-roboshop-docdb"
   vpc_security_group_ids = [aws_security_group.sg.id]
 }
+
+resource "aws_docdb_cluster_instance" "cluster_instances" {
+  for_each           = var.nodes
+  identifier         = "${var.env}-${var.name}-roboshop-docdb-${each.key}"
+  cluster_identifier = aws_docdb_cluster.docdb.id
+  instance_class     = each.value.instance_class
+}
