@@ -12,7 +12,7 @@ resource "aws_docdb_cluster" "docdb" {
   cluster_identifier     = "${var.env}-${var.name}-roboshop-docdb"
   engine                 = var.engine
   master_username        = "madhu"
-  master_password        = "Masai@789"
+  master_password        = "Masai789"
   skip_final_snapshot    = var.skip_final_snapshot
   db_subnet_group_name   = "${var.env}-${var.name}-roboshop-docdb"
   vpc_security_group_ids = [aws_security_group.sg.id]
