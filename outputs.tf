@@ -1,3 +1,3 @@
 output "secrets" {
-  value = data.aws_secretsmanager_secret.roboshop
+  value = data.aws_secretsmanager_secret.roboshop.id
 }
